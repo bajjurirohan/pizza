@@ -1,0 +1,124 @@
+.arrow {
+     display: inline-block;
+     margin-right: 30px;
+     width: 150px;
+     height: 150px;
+     border-top: 2px solid #000;
+     border-right: 2px solid #000;
+     
+  }
+
+
+
+.slice {
+     .crust {
+       width: 0;
+       height: 0;
+       /* margin-top: 10px; */
+       border-left: 130px solid transparent;
+       border-right: 130px solid transparent;
+       border-bottom: 250px solid #773C21;
+       border-radius: 38%;
+       position: absolute;
+     }
+   
+
+     .cheese {
+       width: 0;
+       height: 0;
+       /* margin-top: 10px; */
+       border-left: 125px solid transparent;
+       margin-left: 5px;
+       border-right: 124px solid transparent;
+       border-bottom: 238px solid #FF872D;
+       border-radius: 38%;
+       position: absolute;
+       
+     }
+   
+   }
+   .pep {
+    width: 0;
+   height: 0;
+   border-radius: 50%;
+   position: absolute;
+   border: 15px solid #9C2E0D;
+   }
+   .pep-1 {
+     left: 95px;
+     top: 40px;
+   }
+ 
+   .pep-2 {
+     left: 80px;
+     top: 85px;
+   }
+   
+   .pep-3 {
+     left: 110px;
+     top: 70px;
+   }
+   
+   .pep-4 {
+     left: 70px;
+     top: 120px;
+   }
+   
+  
+   .pep-5 {
+     left: 115px;
+     top: 110px;
+   }
+   .pep-6 {
+     left: 85px;
+     top: 150px;
+   }  
+   .pep-7 {
+     left: 130px;
+     top: 140px;
+   }
+  
+  @screen md {
+    .pep {
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      position: absolute;
+      border: 25px solid #9C2E0D;
+    }
+  
+    .pep-1 {
+      left: 165px;
+      top: 60px;
+    }
+  
+    .pep-2 {
+      left: 180px;
+      top: 245px;
+    }
+    
+    .pep-3 {
+      left: 145px;
+      top: 120px;
+    }
+    
+    .pep-4 {
+      left: 100px;
+      top: 245px;
+    }
+    
+   
+    .pep-5 {
+      left: 140px;
+      top: 180px;
+    }
+    .pep-6 {
+      left: 195px;
+      top: 140px;
+    }  
+    .pep-7 {
+      left: 210px;
+      top: 200px;
+    }
+  
+  }
