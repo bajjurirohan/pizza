@@ -15,7 +15,7 @@ const Search = () => {
     const apiUrl = `https://api.github.com/search/repositories?q=${query}`;
     const response = await fetch(apiUrl);
     const data = await response.json();
-
+ 
     setResults(data.items);
   };
 
