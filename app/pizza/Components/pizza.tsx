@@ -54,7 +54,7 @@ const Pizza: React.FC = () => {
     }
     </div>
     <div className='flex md:flex-col justify-center gap-x-10 mb-10 items-center '>
-    <button className=' bg-transparent md:w-36 md:h-10 text-blue-700 font-semibold py-2 px-4 border md:mb-56 border-blue-500 rounded' onClick={handleReset}>Reset Pizza</button>
+    <button className=' bg-transparent md:w-36 md:h-10 text-blue-700 font-semibold py-2 px-4 border md:mb-56 border-blue-500 rounded' onClick={handleReset}>Reset Base</button>
     <Cart/>
     </div>
   </div>
