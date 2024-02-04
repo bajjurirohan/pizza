@@ -8,7 +8,7 @@ import unnamed from './unnamed.png'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/lib/store';
-import { removePepp } from '@/lib/features/pizza-slice';
+import { addPepp, removePepp } from '@/lib/features/pizza-slice';
 import { useEffect } from 'react';
 
 
@@ -19,25 +19,24 @@ interface SliceProps {
   setReset: () => void;
 }
 
-const Slicee: React.FC<SliceProps> = ({ number, onClick, reset, setReset }) => {
+const Try: React.FC<SliceProps> = ({ number, onClick, reset, setReset }) => {
   const imgRef = useRef<HTMLInputElement>(null);
   const angle = (number - 1) * 45;
   const [PeppSelect, setPeppSelect] = useState(Array(7).fill(false));
   
   const dispatch = useDispatch<AppDispatch>();
-
   const [scaleval, setScale]= useState(1)
 
   const sliceStyle: React.CSSProperties = {
-    transition: 'all 0.3s ease-out', // Smooth transition for all properties
-    transform: `scale(${scaleval})`, // Enlarge on hover
+    transition: 'all 0.3s ease-out', 
+    transform: `scale(${scaleval})`,
   };
 
   const handlePeppClick = (index: number) => {
     const newArr = [...PeppSelect];
     newArr[index] = !newArr[index];
     setPeppSelect(newArr);
-    dispatch(removePepp()); // Pass the index of the clicked pepperoni
+    dispatch(removePepp()); 
   };
 
   const handleMouseEnter = () => {
@@ -54,14 +53,6 @@ const Slicee: React.FC<SliceProps> = ({ number, onClick, reset, setReset }) => {
     setReset();
   }, [reset]);
 
-  const handleClick = (e) => {
-    if (e.type === 'click') {
-      console.log('Left click');
-    } else if (e.type === 'contextmenu') {
-      console.log('Right click');
-    }
-  };
-
   const handleRightClick = (event: React.MouseEvent) =>{
     if (event.type === 'click') {
       console.log('Left click');
@@ -71,34 +62,25 @@ const Slicee: React.FC<SliceProps> = ({ number, onClick, reset, setReset }) => {
     console.log('clicked')
     event.preventDefault();
     
-    const deletedPeppIndex = PeppSelect.findIndex((peppVal) => !peppVal);
-    if (deletedPeppIndex !== -1) {
+    const addPeppIndex = PeppSelect.findIndex((peppVal) => peppVal==true);
+    if (addPeppIndex !== -1) {
       const newArr=[...PeppSelect];
-      newArr[deletedPeppIndex] = true;
+      newArr[addPeppIndex] = false;
       setPeppSelect(newArr);
+      dispatch(addPepp())
   }
 }
+
   return (
 
     <div className="absolute w-36 h-48 md:w-64 md:h-96 z-0 " style={{ transform: `rotate(${angle}deg) translate(0, 50%) `}}>
-      <Image 
-      src={pizza} 
-      alt="Delicious Pizza" 
-      style={sliceStyle} 
-      className=' z-10' 
-      fill={true} 
-      useMap={`#crust${number}`}
-      
-       />
-    <p
-    onClick={handleClick}
-    onContextMenu={handleClick} > hi </p>
-
+      <Image src={pizza} alt="Delicious Pizza" style={sliceStyle} className=' z-10' fill={true} useMap={`#crust${number}`} />
+    
     <map name= {`crust${number}`}>
       <area shape="rect" coords="64,300,320,370" className='hover:cursor-pointer' onClick={onClick}  >
      </area>
-     <area shape="poly" coords="120,0,181,16,204,160,204,222,191,270,140,329,85,355,58,352,37,322,40,259,13,161,28,147" className='hover:cursor-pointer bg-black' onMouseEnter={handleMouseEnter}
-     onMouseLeave={handleMouseLeave} >
+     <area shape="poly" coords="120,0,181,16,204,160,204,222,191,270,140,329,85,355,58,352,37,322,40,259,13,161,28,147" className='' onMouseEnter={handleMouseEnter}
+     onMouseLeave={handleMouseLeave} onClick={handleRightClick} onContextMenu={handleRightClick} >
      </area>
      </map>
       {PeppSelect.map((peppVal, index) => (
@@ -109,4 +91,4 @@ const Slicee: React.FC<SliceProps> = ({ number, onClick, reset, setReset }) => {
   );
 }
 
-export default Slicee;
+export default Try;

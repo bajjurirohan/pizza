@@ -41,9 +41,12 @@ export const pizza = createSlice({
             (state.sliceCount==8) ?
              state.cost= (state.baseprice ) + (state.pepp * state.peppCount) :
              state.cost= (state.slice * state.sliceCount) + (state.pepp * state.peppCount)
+        },
+        addPepp:(state)=>{
+            state.peppCount++
         }
     }
 })
 
-export  const {removePizza , removePepp ,resetPizza, calculateTotal}=pizza.actions
+export  const {removePizza , removePepp ,resetPizza, calculateTotal,addPepp}=pizza.actions
 export default  pizza.reducer;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Slice from './Slice'
-import Try from './Try';
+
+import Slicee from './Slicee';
 import { motion } from "framer-motion";
 //++import { fadeIn } from "../variants";
 import Cart from './Cart';
@@ -16,6 +16,7 @@ const Pizza: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     const handleSliceClick =( index: number) =>{
+      console.log(index)
       const  newArr = [...SliceSelect];
        newArr[index - 1]= !newArr[index-1] ;
        setSliceSelect(newArr);
@@ -43,8 +44,9 @@ const Pizza: React.FC = () => {
             //  onClick={() => handleSliceClick(sliceNumber)} />)
             // {/* <Slice key={2} number={2} /> */}
             
-            <Try key={sliceNumber} number={sliceNumber}
+            <Slicee key={sliceNumber} number={sliceNumber}
              onClick={() => handleSliceClick(sliceNumber)}
+            
              reset={resetPepp} 
              setReset={()=>setresetPepp(false)}/> )
               
@@ -52,7 +54,7 @@ const Pizza: React.FC = () => {
     }
     </div>
     <div className='flex md:flex-col justify-center gap-x-10 mb-10 items-center '>
-    <button className=' bg-transparent md:w-36 md:h-10 text-blue-700 font-semibold py-2 px-4 border md:mb-56 border-blue-500 rounded' onClick={handleReset}>ClickME</button>
+    <button className=' bg-transparent md:w-36 md:h-10 text-blue-700 font-semibold py-2 px-4 border md:mb-56 border-blue-500 rounded' onClick={handleReset}>Reset Pizza to Base</button>
     <Cart/>
     </div>
   </div>

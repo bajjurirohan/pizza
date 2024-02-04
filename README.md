@@ -26,6 +26,10 @@ You will be able to reset your selection with the reset Option and the respectiv
 
 I have utilized Redux to the the total costs according to the given pricings with the pizza slice in lib\features\pizza-slice.ts. The useReducer hook was used to manage the state of the cart.
 
+## Redux Store
+
+I have implemented the redux store to calculate the checkout cost and to handle the pizza slices and pepperoni Count
+
 ## Search page
 
 I have implemented the search functionality in the route /seach where you can search for repositories from the Github API and results the repositiories with repect to the name provide by the user

@@ -2,6 +2,7 @@
 import Image from "next/image";
 import './styles.css';
 import Pizza from "./Components/pizza";
+// import Pizzaa from "./Components/Pizzaa";
 
 export default function Home() {
   return (
